@@ -1,29 +1,27 @@
-name: teszta
+name: Java CI with Maven
 
 on:
   push:
-    branches:
-      - master
-
-env:
-  DOCKER_REGISTRY: ghcr.io
-  DOCKER_IMAGE_NAME: ${{ github.repository }}
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
-  main:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up java 22
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'adopt'
-          java-version: '22'
-      - name: Compile TesztaappApplication
-        run: mvn compile
-      - name: Test TesztaappApplication
-        run: mvn test
-      - name: Publish package
-        run: mvn --batch-mode deploy --file pom.xml
-        env:
-          GITHUB_TOKEN: ${{ secrets.AUTOAPI_SECRET }}
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+
+    - name: Build with Maven
+      run: mvn clean install
+
+    - name: Run tests
+      run: mvn test

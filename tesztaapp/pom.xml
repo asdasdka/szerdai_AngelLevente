@@ -74,7 +74,7 @@
 				<version>0.8.2</version>
 				<configuration>
 					<excludes>
-						<exclude>**/TeasztaAppApplication.class</exclude>
+						<exclude>**/TeasztaappApplication.class</exclude>
 					</excludes>
 				</configuration>
 				<executions>
