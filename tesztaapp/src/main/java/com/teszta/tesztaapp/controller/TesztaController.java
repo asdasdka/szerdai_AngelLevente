@@ -3,6 +3,7 @@ package com.teszta.tesztaapp.controller;
 import com.teszta.tesztaapp.model.Teszta;
 import com.teszta.tesztaapp.service.TesztaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,5 +23,15 @@ public class TesztaController {
     @GetMapping("/get")
     public List<Teszta> getTesztak(){
         return tesztaService.osszesTeszta();
+    }
+
+    @DeleteMapping("/del/{id}")
+    public String tesztaTorles(@PathVariable Integer id){
+        return tesztaService.tesztaTorles(id);
+    }
+
+    @PutMapping("/update")
+    public Teszta tesztaFrissit(@RequestBody Teszta teszta){
+        return tesztaService.tesztaFrissit(teszta);
     }
 }

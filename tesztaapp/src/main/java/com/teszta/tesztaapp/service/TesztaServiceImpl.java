@@ -22,4 +22,15 @@ public class TesztaServiceImpl implements TesztaService{
     public List<Teszta> osszesTeszta() {
         return tesztaRepository.findAll();
     }
+
+    @Override
+    public String tesztaTorles(Integer id) {
+        tesztaRepository.deleteById(id);
+        return "Tészta sikeresen törölve!";
+    }
+
+    @Override
+    public Teszta tesztaFrissit(Teszta teszta) {
+        return tesztaRepository.save(teszta);
+    }
 }
