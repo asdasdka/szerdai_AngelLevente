@@ -1,15 +1,15 @@
 package com.teszta.tesztaapp.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.teszta.tesztaapp.model.Teszta;
 import com.teszta.tesztaapp.repository.TesztaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Service
-public class TesztaServiceImpl implements TesztaService{
+public class TesztaServiceImpl implements TesztaService {
 
     @Autowired
     private TesztaRepository tesztaRepository;
@@ -22,8 +22,8 @@ public class TesztaServiceImpl implements TesztaService{
     @Override
     public List<Teszta> finomak() {
         List<Teszta> finomLista = new ArrayList<>();
-        for (Teszta teszta: osszesTeszta()){
-            if (teszta.isFinom()){
+        for (Teszta teszta : osszesTeszta()) {
+            if (teszta.isFinom()) {
                 finomLista.add(teszta);
             }
         }

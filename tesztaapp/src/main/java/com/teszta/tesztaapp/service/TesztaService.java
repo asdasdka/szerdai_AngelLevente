@@ -1,8 +1,8 @@
 package com.teszta.tesztaapp.service;
 
-import com.teszta.tesztaapp.model.Teszta;
-
 import java.util.List;
+
+import com.teszta.tesztaapp.model.Teszta;
 
 public interface TesztaService {
     public Teszta mentesTeszta(Teszta teszta);
