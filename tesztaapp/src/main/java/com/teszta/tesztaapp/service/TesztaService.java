@@ -7,6 +7,8 @@ import java.util.List;
 public interface TesztaService {
     public Teszta mentesTeszta(Teszta teszta);
 
+    public List<Teszta> finomak();
+
     public List<Teszta> osszesTeszta();
 
     public String tesztaTorles(Integer id);

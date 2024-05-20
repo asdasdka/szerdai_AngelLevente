@@ -24,6 +24,10 @@ public class TesztaController {
     public List<Teszta> getTesztak(){
         return tesztaService.osszesTeszta();
     }
+    @GetMapping("/getFinom")
+    public List<Teszta> fintomTesztak(){
+        return tesztaService.finomak();
+    }
 
     @DeleteMapping("/del/{id}")
     public String tesztaTorles(@PathVariable Integer id){
